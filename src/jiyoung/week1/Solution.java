@@ -1,5 +1,6 @@
 package jiyoung.week1;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Solution {
@@ -16,21 +17,65 @@ public class Solution {
 //		참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.
 //		참가자 중에는 동명이인이 있을 수 있습니다.
 		
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		
 		//문자열자르기
-		String input = sc.nextLine();
-		String[] names = input.split("\", \"");
-		names[0] = names[0].substring(2);
-		String last = names[names.length-1];
-		names[names.length-1] = last.substring(0,last.indexOf("\""));
+//		String input = sc.nextLine();
+//		String[] names = input.split("\", \"");
+//		names[0] = names[0].substring(2);
+//		String last = names[names.length-1];
+//		names[names.length-1] = last.substring(0,last.indexOf("\""));
 		
 //		for(String s : names) {
 //			System.out.println("'"+s+"'");
 //		}
+
+//		배열로준다고............문제똑바로읽기;
+		
+		///String[] hashMap = new String
 		
 		//해쉬로 풀라니까..
-		///String[] hashMap = new String 
+		
+		String[] participant1 = {"leo", "kiki", "eden"};
+		String[] completion1 = {"eden", "kiki"};
+		String[] participant2 = {"mislav", "stanko", "mislav", "ana"};
+		String[] completion2 = {"stanko", "ana", "mislav"};
+		
+		
+		System.out.println(solution(participant2, completion2));
+		
 	}
 
+    public static String solution(String[] participant, String[] completion) {
+    	
+        String answer = "";
+        HashMap<String, Integer> hashMap = new HashMap<String, Integer>(100000);
+		
+		for(String name : completion) {
+			if(!hashMap.containsKey(name)) {	
+				hashMap.put(name, 1);	
+			}
+			else {	//동명이인
+				hashMap.put(name, hashMap.get(name) + 1);
+			}
+		}
+		for(String name : participant) {
+			if(!hashMap.containsKey(name)) {	//없는사람
+				answer = name;
+				break;
+			}
+			else {
+				int num = hashMap.get(name);
+				
+				if(num == 0){	//동명이인 있을경우 마지막 동명이인
+					answer = name;
+					break;
+				}
+				else {
+					hashMap.put(name, --num);
+				}
+			}
+		}
+        return answer;
+    }
 }
