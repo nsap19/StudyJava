@@ -7,5 +7,6 @@ public class test {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         System.out.println("");
+        System.out.println();
     }
 }
