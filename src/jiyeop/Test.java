@@ -1,4 +1,4 @@
-package JiYeop;
+package jiyeop;
 
 public class Test {
 

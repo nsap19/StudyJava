@@ -33,21 +33,26 @@ class Solution{
 			HM.put(participant[i], HM.getOrDefault(participant[i], 0)+1);
 		}
 		
-		System.out.println(HM); /**ex0  {name 1 name2 1 name2 1}*/
-		/**완주자 배열에서 중복시 
+		//System.out.println(HM); /**출력 돌렸을 때 예  {name 1 name2 1 name2 1}*/
+		/**해쉬업뎃 
+		 * key값이 있으면 value -1하기ㅣ
 		 * 
 		 * */
 		
 		for(int i=0;i<completion.length;i++) {
 			HM.put(completion[i], HM.get(completion[i]) - 1);
 		}
+		/**돌렸을 때 예  {name 0 name2 1 name2 0}*/
+		
+		
 		for(int i = 0; i<participant.length;i++) {
+			/**value 값이 1인 경우에만 중복되지 않음 */
 			if(HM.get(participant[i])!=0) {
 				answer = participant[i];
 			}
 		}
 		
-		System.out.println(HM);
+		//System.out.println(HM);
 		return answer;
 	}
 }
