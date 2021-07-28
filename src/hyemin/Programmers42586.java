@@ -27,34 +27,32 @@ class Solution {
 
         for (int i = 0; i < progresses.length; i++) {
             int pDay = (int) Math.ceil((double) (100 - progresses[i]) / speeds[i]); //작업 기간
+            //3.1일 => 4일로 처리해야하므로 Math.ceil을 이용해 올림
 
             queue.add(pDay);
         }
+//        System.out.println(queue.toString());
 
-        int day = queue.peek();
+        int day = queue.peek(); //첫 기능과 같은 날에 배포될 기능을 구할 것임
         int count = 0;
         while (!queue.isEmpty()) {
-            while (!queue.isEmpty() && queue.peek() <= day) { //첫번째 기능이 배포되는 날에 같이 배포할 수 있는 기능 갯수 count
+            while (!queue.isEmpty() && queue.peek() <= day) { // 첫번째 기능이 배포되는 날에 같이 배포할 수 있는 기능 갯수 count
                 count++;
                 queue.poll();
             }
 
-            //더이상 같은 날에 배포할 수 있는 기능이 없다면 day+1
-            day++;
+            resultList.add(count);
+            count = 0;
 
+            //day를 다음 기능이 배포되는 날로 지정
+            if (!queue.isEmpty()) day = queue.peek();
 
-            if (count != 0) {
-                resultList.add(count);
-                count = 0;
-            }
-//            System.out.println(resultList.toString());
         }
 
         result = new int[resultList.size()];
         for (int i = 0; i < result.length; i++) {
             result[i] = resultList.get(i);
         }
-
         return result;
     }
 }
