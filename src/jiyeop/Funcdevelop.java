@@ -20,12 +20,8 @@ public class Funcdevelop {
 class Funcd {
 	public int[] Funcd(int[] progresses, int[] speeds) {
     	int N = progresses.length;
-    
-    	int[] answer;
-    	
+    	int[] answer;	
     	int start = 0;
-    	int index = 0;
-    	
     	Stack<Integer> stack = new Stack<>();
     	int num = N;
     	
@@ -43,18 +39,14 @@ class Funcd {
     		}
     		if(count !=0) {
     		stack.push(count);
-    		index++;
     		num = num - count;
     		}
-    		
     	}
     	answer = new int[stack.size()];
     	for (int i = 0; i < answer.length; i++) {
 			answer[i]=stack.get(i);
-		}
-    	
+		}    	
     	System.out.println(Arrays.toString(answer));
-    	System.out.println(stack.size());
     	return answer;
     }
 }
