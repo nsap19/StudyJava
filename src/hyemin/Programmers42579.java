@@ -1,11 +1,9 @@
 package hyemin;
 
-import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Programmers42579 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         System.out.println(Arrays.toString(solution(new String[]{"classic", "pop", "classic", "classic", "pop"}, new int[]{500, 600, 150, 800, 2500})));
         // 4,1,3,0
         System.out.println(Arrays.toString(solution(new String[]{"A", "A", "B", "A", "B", "B", "A", "A", "A", "A"}, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1})));
