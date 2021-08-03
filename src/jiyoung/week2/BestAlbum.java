@@ -42,48 +42,48 @@ public class BestAlbum {
 			System.out.println(i);
 		}
 	}
-}
+	static class Solution {
+		public int[] solution(String[] genres, int[] plays) {
+			int[] answer = new int[200];
 
-class Solution {
-	public int[] solution(String[] genres, int[] plays) {
-		int[] answer = new int[200];
+			Map<String, Integer> hm1 = new HashMap<>();
+			Map<String, Integer> hm2 = new HashMap<>();
+			Map<String, Integer> hm3 = new HashMap<>();
+			List<String> l = null;
 
-		Map<String, Integer> hm1 = new HashMap<>();
-		Map<String, Integer> hm2 = new HashMap<>();
-		Map<String, Integer> hm3 = new HashMap<>();
-		List<String> l = null;
-
-		for (int i = 0; i < genres.length; i++) {
-			int cur = hm1.getOrDefault(genres[i], -1);	//cur = 지금 hm1에 들어있는거, i = 새거
-			if (cur == -1) { // 들어있던게 없음
-				hm1.put(genres[i], i);
-			} else if (plays[cur] < plays[i]) { // 새곡이 재생수 큼
-				hm1.put(genres[i], i);
-				hm2.put(genres[i], cur);
-			} else if (plays[cur] == plays[i]) { // 같음
-				if (hm2.getOrDefault(genres[i], -1) < plays[cur])	//원래 없었거나 작은거 저장되었을경우
-					hm2.put(genres[i], i);
-			} else { // 적음
-				cur = hm2.getOrDefault(genres[i], -1);
-				if (cur == -1 || plays[cur] < plays[i]) {
-					hm2.put(genres[i], i);
+			for (int i = 0; i < genres.length; i++) {
+				int cur = hm1.getOrDefault(genres[i], -1);	//cur = 지금 hm1에 들어있는거, i = 새거
+				if (cur == -1) { // 들어있던게 없음
+					hm1.put(genres[i], i);
+				} else if (plays[cur] < plays[i]) { // 새곡이 재생수 큼
+					hm1.put(genres[i], i);
+					hm2.put(genres[i], cur);
+				} else if (plays[cur] == plays[i]) { // 같음
+					if (hm2.getOrDefault(genres[i], -1) < plays[cur])	//원래 없었거나 작은거 저장되었을경우	**이조건 없었어서 2,15케이스 통과못함 - 머리로만 하지말고 직접 테케만들어서 돌려보기! 한번에 확인가능**
+						hm2.put(genres[i], i);
+				} else { // 적음
+					cur = hm2.getOrDefault(genres[i], -1);
+					if (cur == -1 || plays[cur] < plays[i]) {
+						hm2.put(genres[i], i);
+					}
 				}
+				hm3.put(genres[i], hm3.getOrDefault(genres[i], 0) + plays[i]);
 			}
-			hm3.put(genres[i], hm3.getOrDefault(genres[i], 0) + plays[i]);
-		}
-//		System.out.println(hm3.toString());
-		l = new ArrayList<>(hm1.keySet());
-		Collections.sort(l, (o1, o2) -> (hm3.get(o2).compareTo(hm3.get(o1))));
+//			System.out.println(hm3.toString());
+			l = new ArrayList<>(hm1.keySet());
+			Collections.sort(l, (o1, o2) -> (hm3.get(o2).compareTo(hm3.get(o1))));
 
-//		System.out.println(l.toString());
+//			System.out.println(l.toString());
 
-		int index = 0;
-		for (int i = 0; i < l.size(); i++) {
-			String g = l.get(i);
-			answer[index++] = hm1.get(g);
-			if (hm2.get(g) != null)
-				answer[index++] = hm2.get(g);
+			int index = 0;
+			for (int i = 0; i < l.size(); i++) {
+				String g = l.get(i);
+				answer[index++] = hm1.get(g);
+				if (hm2.get(g) != null)
+					answer[index++] = hm2.get(g);
+			}
+			return Arrays.copyOfRange(answer, 0, index);
 		}
-		return Arrays.copyOfRange(answer, 0, index);
 	}
 }
+
