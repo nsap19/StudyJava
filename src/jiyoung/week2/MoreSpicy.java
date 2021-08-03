@@ -42,7 +42,7 @@ public class MoreSpicy {
 	
 	public static void main(String[] args) {
 		// 힙으로 구현해보기
-		// 최대랑 최소를 빠르게 구하려면 힙
+		// 최대랑 최소를 빠르게 구하려면 힙을 사용하면 좋다고 한다!
 
 		Solution s = new Solution();
 		int[] scoville = { 12, 10, 9, 3, 2, 1 };
