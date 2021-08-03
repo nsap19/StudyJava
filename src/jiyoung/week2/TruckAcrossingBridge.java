@@ -24,6 +24,25 @@ public class TruckAcrossingBridge {
 //	현재 다리위에 올라간 무게 저장
 //	맨뒤 애가 몇초에 올라갔는지가 중요함
 
+//	정확성  테스트
+//	테스트 1 〉	통과 (0.14ms, 57.1MB)
+//	테스트 2 〉	통과 (0.16ms, 58.4MB)
+//	테스트 3 〉	통과 (0.15ms, 56.9MB)
+//	테스트 4 〉	통과 (0.77ms, 57.5MB)
+//	테스트 5 〉	통과 (1.11ms, 57.6MB)
+//	테스트 6 〉	통과 (0.95ms, 57.3MB)
+//	테스트 7 〉	통과 (0.11ms, 58.1MB)
+//	테스트 8 〉	통과 (0.20ms, 73.1MB)
+//	테스트 9 〉	통과 (1.10ms, 55.6MB)
+//	테스트 10 〉	통과 (0.16ms, 57.1MB)
+//	테스트 11 〉	통과 (0.16ms, 68.8MB)
+//	테스트 12 〉	통과 (0.28ms, 66.2MB)
+//	테스트 13 〉	통과 (0.31ms, 68.9MB)
+//	테스트 14 〉	통과 (0.14ms, 58.6MB)
+//	채점 결과
+//	정확성: 100.0
+//	합계: 100.0 / 100.0
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Solution s = new Solution();
@@ -41,36 +60,34 @@ public class TruckAcrossingBridge {
 		System.out.println(s.solution(5, 5, t6));
 
 	}
+	static class Solution {
+		public int solution(int bridge_length, int weight, int[] truck_weights) {
+			int answer = 1;
+			int curWeight = 0;
 
-}
+			Queue<Integer> truck = new LinkedList<>();
+			Queue<Integer> time = new LinkedList<>();
 
-class Solution {
-	public int solution(int bridge_length, int weight, int[] truck_weights) {
-		int answer = 1;
-		int curWeight = 0;
-
-		Queue<Integer> truck = new LinkedList<>();
-		Queue<Integer> time = new LinkedList<>();
-
-		for (int i = 0; i < truck_weights.length; i++) {
-			curWeight += truck_weights[i]; // 일단올려
-			truck.add(truck_weights[i]);
-			
-			// 다리에 여유가 없으면
-			while (curWeight > weight || truck.size() > bridge_length) { // 새거 올릴수있을때까지 옛날거 뺌
-				curWeight -= truck.poll(); // 옛날거빼고
-				int t = time.poll() + bridge_length;
-				if(answer <= t) 	//****이 조건없어서!! 앞에거 나가기 전에 이미 올린상태를 고려안했음*****
-					answer = t;
+			for (int i = 0; i < truck_weights.length; i++) {
+				curWeight += truck_weights[i]; // 일단올려
+				truck.add(truck_weights[i]);
+				
+				// 다리에 여유가 없으면
+				while (curWeight > weight || truck.size() > bridge_length) { // 새거 올릴수있을때까지 옛날거 뺌
+					curWeight -= truck.poll(); // 옛날거빼고
+					int t = time.poll() + bridge_length;
+					if(answer <= t) 	//****이 조건없어서!! 앞에거 나가기 전에 이미 올린상태를 고려안했음*****
+						answer = t;
+				}
+				
+				time.add(answer++);
+//				System.out.println(i + " truck" + truck.toString());
+//				System.out.println(i + " time " + time.toString());
 			}
-			
-			time.add(answer++);
-//			System.out.println(i + " truck" + truck.toString());
-//			System.out.println(i + " time " + time.toString());
+			while (!time.isEmpty()) {
+				answer = time.poll() + bridge_length;
+			}
+			return answer;
 		}
-		while (!time.isEmpty()) {
-			answer = time.poll() + bridge_length;
-		}
-		return answer;
 	}
 }
