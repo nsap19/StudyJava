@@ -4,14 +4,14 @@ import java.io.*;
 import java.util.*;
 
 public class BOJ11725 {
-    static int[] result;
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
         int N = Integer.parseInt(br.readLine()); //노드의 갯수
         LinkedList<Integer>[] tree = new LinkedList[N + 1];
-        result = new int[N + 1];
+        int[] result = new int[N + 1];
+        Queue<Integer> queue = new LinkedList<>();
 
         for (int i = 1; i <= N; i++) {
             tree[i] = new LinkedList<>();
@@ -26,16 +26,9 @@ public class BOJ11725 {
             tree[a].add(b);
             tree[b].add(a);
         }
-        bfs(1, tree);
-        for (int j = 2; j <= N; j++) {
-            System.out.println(result[j]);
-        }
-    }
 
-    private static void bfs(int start, LinkedList<Integer>[] tree) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(start);
-        result[start] = 1;
+        queue.offer(1);
+        result[1] = 1;
 
         while (!queue.isEmpty()) {
             int parent = queue.poll();
@@ -47,5 +40,11 @@ public class BOJ11725 {
                 }
             }
         }
+
+        for (int j = 2; j <= N; j++) {
+            sb.append(result[j]).append("\n");
+        }
+
+        System.out.println(sb);
     }
 }
