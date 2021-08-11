@@ -23,72 +23,71 @@ public class DoublePriorityQueue {
 //		s.solution(op2);
 		s.solution(op3);
 	}
+	static class Solution {
+		
+//		테스트 1 〉	통과 (5.80ms, 57.6MB)
+//		테스트 2 〉	통과 (15.84ms, 57.8MB)
+//		테스트 3 〉	통과 (6.10ms, 59.2MB)
+//		테스트 4 〉	통과 (0.36ms, 67.1MB)
+//		테스트 5 〉	통과 (25.71ms, 72.7MB)
+//		테스트 6 〉	통과 (16.98ms, 54.5MB)
+//		시간이 오래걸리는거같아요,,
+		
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+		List<Integer> maxList = new ArrayList<>();
+		
+	    public int[] solution(String[] operations) {
+	        int[] answer = {};
+	        StringTokenizer st;
+	        
+	        for (String o : operations) {
+	        	st = new StringTokenizer(o, " ");
+	        	String op = st.nextToken();
+	        	int num = Integer.parseInt(st.nextToken());
+	        	switch(op) {
+	        	case "I":
+	        		insert(num);
+	        		break;
+	        	case "D":
+	        		if(num == -1) 
+	        			deleteMin();
+	        		else 
+	        			deleteMax();
+	        		break;
+	        	}
+			}
+	        
+	        if(maxHeap.size()==0)
+	        	answer = new int[]{0, 0};
+	        else {
+	        	int max = maxHeap.peek();
+	        	int min = minHeap.peek();
+	        	answer = new int[] {max, min};
+	        }
+	        System.out.println(Arrays.toString(answer));
 
-}
-class Solution {
-	
-//	테스트 1 〉	통과 (5.80ms, 57.6MB)
-//	테스트 2 〉	통과 (15.84ms, 57.8MB)
-//	테스트 3 〉	통과 (6.10ms, 59.2MB)
-//	테스트 4 〉	통과 (0.36ms, 67.1MB)
-//	테스트 5 〉	통과 (25.71ms, 72.7MB)
-//	테스트 6 〉	통과 (16.98ms, 54.5MB)
-//	시간이 오래걸리는거같아요,,
-	
-	PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-	PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-	List<Integer> maxList = new ArrayList<>();
-	
-    public int[] solution(String[] operations) {
-        int[] answer = {};
-        StringTokenizer st;
-        
-        for (String o : operations) {
-        	st = new StringTokenizer(o, " ");
-        	String op = st.nextToken();
-        	int num = Integer.parseInt(st.nextToken());
-        	switch(op) {
-        	case "I":
-        		insert(num);
-        		break;
-        	case "D":
-        		if(num == -1) 
-        			deleteMin();
-        		else 
-        			deleteMax();
-        		break;
-        	}
-		}
-        
-        if(maxHeap.size()==0)
-        	answer = new int[]{0, 0};
-        else {
-        	int max = maxHeap.peek();
-        	int min = minHeap.peek();
-        	answer = new int[] {max, min};
-        }
-        System.out.println(Arrays.toString(answer));
-
-        return answer;
-    }
-    public void insert(int n) {
-    	maxHeap.add(n);
-    	minHeap.add(n);
-    	System.out.println("insert" + n);
-    }
-    public void deleteMax() {
-    	if(!maxHeap.isEmpty()) {
-    		int n = maxHeap.poll();
-    		maxList.add(n);
-    		minHeap.remove(n);
-    		System.out.println("del max" + n);
-    	}
-    }
-    public void deleteMin() {
-    	if(!minHeap.isEmpty()) {
-    		int n = minHeap.poll();
-    		maxHeap.remove(n);
-    		System.out.println("del min" + n);
-    	}
-    }
+	        return answer;
+	    }
+	    public void insert(int n) {
+	    	maxHeap.add(n);
+	    	minHeap.add(n);
+	    	System.out.println("insert" + n);
+	    }
+	    public void deleteMax() {
+	    	if(!maxHeap.isEmpty()) {
+	    		int n = maxHeap.poll();
+	    		maxList.add(n);
+	    		minHeap.remove(n);
+	    		System.out.println("del max" + n);
+	    	}
+	    }
+	    public void deleteMin() {
+	    	if(!minHeap.isEmpty()) {
+	    		int n = minHeap.poll();
+	    		maxHeap.remove(n);
+	    		System.out.println("del min" + n);
+	    	}
+	    }
+	}
 }
