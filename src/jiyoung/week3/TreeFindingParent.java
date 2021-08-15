@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 public class TreeFindingParent {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// 1,4 2,3 2,4 이렇게 들어올 경우 24중 누가 부모인지 구분해야됨
+		// 1,4     2,3       2,4 이렇게 들어올 경우 24중 누가 부모인지 구분해야됨
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		StringBuilder sb = new StringBuilder();
