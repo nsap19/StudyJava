@@ -35,7 +35,6 @@ public class TheLargestNumber {
 			return answer;
 		}
 	}
-	
 	public static void main(String[] args) {
 		int [] arr = {3,35,34,5,9};
 		thelargestnumber sol = new thelargestnumber();
