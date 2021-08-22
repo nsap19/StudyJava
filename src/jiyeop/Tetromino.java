@@ -51,7 +51,7 @@ public class Tetromino {
 				//System.out.println("2 : " + max);
 			}
 		}
-		System.out.println(+ max);
+		System.out.println(max);
 	}
 	static void DFS(int x,int y, int r, int sum) {
 		/**ㄴㅁㅡ 만들기
