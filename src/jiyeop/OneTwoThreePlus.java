@@ -28,6 +28,6 @@ public class OneTwoThreePlus {
 			n = Integer.parseInt(br.readLine());
 			sb.append(arr[n]).append("\n");
 		}
-		System.out.println(sb);;
+		System.out.println(sb);
 	}
 }

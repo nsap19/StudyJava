@@ -1,5 +1,6 @@
 package jiyeop;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class FindPrimeNumber {
@@ -44,7 +45,6 @@ public class FindPrimeNumber {
 				}
 				//포문으로 돌리지 않고 그냥 arr하면 배열이기 때문에 배열사이즈 만큼 출력한다.
 				//반드시 r만큼 돌려주어야한다. 
-				
 				
 				//System.out.println(Integer.parseInt(sb.toString()));
 				//Integer.parseInt(sb.toString())을 쓰면
