@@ -6,6 +6,10 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class NandM {
+	/**
+	 * N과M
+	 * swap으로 하니까 사전순대로 안된다. 
+	 * 다른방법으로 순열 구현함*/
 	static int[] arr;
 	static int[] output;
 	static boolean[] visited;
@@ -45,5 +49,4 @@ public class NandM {
 			}
 		}
 	}
-	
 }

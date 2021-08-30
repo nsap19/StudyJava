@@ -11,6 +11,7 @@ public class ConnectingIslands {
 	 * 하나의 집합을 만드는 과정이라 생각 유니온 파인드
 	 * 작은순으로 집합을 만들기 위해 
 	 * 가중치로 오름 차순정렬
+	 * 크루스칼이 편할지 유니온파인드가 편할지 문제마다 조금씩 다를듯
 	 * */
 	static int[] parents;
 	static ArrayList<edge> graph = new ArrayList<>();
