@@ -62,6 +62,7 @@ public class ConnectingIsland {
 			for (Edge edge : edgeList) {
 				if (union(edge.start, edge.end)) {
 					answer += edge.weight;
+					//첨에 e-1이 아니라 v-1을 해서 틀렸음!!
 					if (++cnt == e - 1)
 						break;
 				}
