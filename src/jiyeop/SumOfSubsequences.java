@@ -36,17 +36,14 @@ public class SumOfSubsequences {
 			System.out.println(cnt);
 		}
 	}
-	
 	static void comb(int r) {
 		if(N == r) {
-			
 			int sum = 0;
 			for (int i = 0; i < N; i++) {
 				if(visited[i]==true) {
 					sum+=arr[i];
 				}
 			}
-			
 			if(sum == S) {
 				cnt++;
 			}
