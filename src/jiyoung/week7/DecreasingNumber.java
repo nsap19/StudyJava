@@ -12,9 +12,10 @@ public class DecreasingNumber {
 //	N은 1,000,000보다 작거나 같은 자연수 또는 0이다.
 
 //	음.. 1부터 증가시키면서 해당 수가 감소하는수인지 확인?
-//	시간초과날듯 ㅎㅎ..
+//	시간초과날듯 ㅎㅎ.. -> 시간초과
 
 //	앞자리수보다 작은 수만 선택 가능하도록 수를 생성
+	
 	public static int cnt = -1;
 	public static int[] numbers;
 	public static int n, length, answer = -1;
