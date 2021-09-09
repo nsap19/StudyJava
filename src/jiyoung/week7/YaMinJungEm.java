@@ -27,7 +27,7 @@ public class YaMinJungEm {
 	
 	
 	
-//	왜 bfs는 안되는거죠??ㅜㅜㅜㅜㅜ알려주세요...여러분...
+//	왜 dfs는 안되는거죠??ㅜㅜㅜㅜㅜ알려주세요...여러분...
 	
 	
 	public static List<Integer>[] tree;
