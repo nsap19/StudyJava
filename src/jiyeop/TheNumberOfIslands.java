@@ -9,6 +9,9 @@ import java.util.StringTokenizer;
 public class TheNumberOfIslands {
 	/**
 	 * 오류가 있었는데 w h 값을 잘못넣어서 생김
+	 * 
+	 * DFS 184ms
+	 * BFS 180ms
 	 * */
 	static int w;
 	static int h;
