@@ -37,11 +37,12 @@ public class HideAndSeek3 {
 			if(node.x == K) {
 				answer = Math.min(answer, node.time);
 			}
-			if(node.x * 2 <= 100000 && !visited[node.x * 2]) {
-				q.add(new Node(node.x * 2, node.time));
-			}
+			
 			if(node.x + 1 <= 100000 && !visited[node.x + 1]) {
 				q.add(new Node(node.x + 1, node.time + 1));
+			}
+			if(node.x * 2 <= 100000 && !visited[node.x * 2]) {
+				q.add(new Node(node.x * 2, node.time));
 			}
 			if(node.x - 1 >= 0 && !visited[node.x - 1]) {
 				q.add(new Node(node.x - 1, node.time + 1));
