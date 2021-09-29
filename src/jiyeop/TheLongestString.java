@@ -22,7 +22,11 @@ public class TheLongestString {
 	 * O(N^2 × logN) -> O(N × log^2N) 
 	 * 이건 사전 순 배열을 구하는 것이기 때문에  문자열 첫글자 - 'a'하고 랭크에 저장
 	 * nextrank는  rank의 값을 가져오면됨 마지막 배열의 nrank = -1
-	 * 그리고 사전순 배열 하면 끝*/
+	 * 랭크 개념과 기수정렬을 도입함
+	 * 구현 방법 문자열 S의 접미사들을 첫글자 두번째 글자에 대해 사전순 정렬
+	 * 정렬된 순서를 바탕으로 랭크 부여
+	 * 접미사의 특성을 이용해 부여된 두개의 랭크를 기준으로 정렬 (비교 범위가 두배가 됨)
+	 * 2로 돌아간다./*/
 	
 	/**
 	 * lcp(최대 공통 접두사) 접두사 끼리 비교 배열의 i 값과 i+1값 비교
@@ -34,16 +38,16 @@ public class TheLongestString {
 	 *  LCP배열은 접미사 배열을 이용해서 만드는 배열이기 때문에 
 	 *  LCP를 사용하려면 반드시 접미사 배열을 구해야함. 애초에 이런생각 못할것 같습니다.
 	 *  0 8 abc				10	0
-		1 1 abcabcfabc		1	3
+		1 1 abcabcfabc			1	3
 		2 4 abcfabc			4	2
 		3 9 bc				7	1
-		4 2 bcabcfabc		2	0
+		4 2 bcabcfabc			2	0
 		5 5 bcfabc			5	0
 		6 10 c				8	0
-		7 3 cabcfabc		9	0
+		7 3 cabcfabc			9	0
 		8 6 cfabc			0	3
 		9 7 fabc			3	2
-		10 0 sabcabcfabc	6	1*/
+		10 0 sabcabcfabc		6	1*/
 	static int L;
 	
 	public static void main(String[] args) throws Exception {
