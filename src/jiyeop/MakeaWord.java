@@ -15,7 +15,6 @@ public class MakeaWord {
 	 * 문자 수도 비교, 문자 여부도 비교해야홤. 
 	 * 조건은 맞게 구했는데 continue pos 부분은 참고를 했다.
 	 * */
-
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
