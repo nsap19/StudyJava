@@ -38,16 +38,16 @@ public class TheLongestString {
 	 *  LCP배열은 접미사 배열을 이용해서 만드는 배열이기 때문에 
 	 *  LCP를 사용하려면 반드시 접미사 배열을 구해야함. 애초에 이런생각 못할것 같습니다.
 	 *  0 8 abc				10	0
-		1 1 abcabcfabc			1	3
+		1 1 abcabcfabc		1	3
 		2 4 abcfabc			4	2
 		3 9 bc				7	1
-		4 2 bcabcfabc			2	0
+		4 2 bcabcfabc		2	0
 		5 5 bcfabc			5	0
 		6 10 c				8	0
-		7 3 cabcfabc			9	0
+		7 3 cabcfabc		9	0
 		8 6 cfabc			0	3
 		9 7 fabc			3	2
-		10 0 sabcabcfabc		6	1*/
+		10 0 sabcabcfabc	6	1*/
 	static int L;
 	
 	public static void main(String[] args) throws Exception {
@@ -64,7 +64,7 @@ public class TheLongestString {
 		//lcp 최대 공통 접두사의 길이
 		int[] lcp = findLCP(str,suffixArray);
 		for (int i = 0; i < lcp.length-1; i++) {
-			//System.out.println(lcp[i]);
+			System.out.println(lcp[i]);
 			max = Math.max(max, lcp[i]);
         }
 		System.out.println(max);
