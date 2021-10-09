@@ -18,17 +18,50 @@ public class BOJ17609_회문 {
         // 회문 0
         // 유사회문 1
         // 그 외 2
+        int result;
         for (int i = 0; i < N; i++) {
             String[] str = arr[i];
             int left = 0, right = str.length - 1;
-            boolean flag = true;
-            while (left < right && str[left].equals(str[right])) {
-                left++;
-                right--;
-            }
-            if(left>right) flag= true;
-            else if(str[left].equals(str[right])){}
 
+            result = 2;
+            int[] rt = rotate(str, left, right);
+            left = rt[0];
+            right = rt[1];
+
+            if (left >= right) {
+                result = 0;
+            } else {
+                int tl = 0, tr = 0;
+                if (str[left].equals(str[right - 1])) {
+                    rt = rotate(str, left, right - 1);
+                    tl = rt[0];
+                    tr = rt[1];
+                    if (tl >= tr) {
+                        result = 1;
+                    }
+                }
+                if (str[right].equals(str[left + 1])) {
+                    rt = rotate(str, left + 1, right);
+                    tl = rt[0];
+                    tr = rt[1];
+                    if (tl >= tr) {
+                        result = 1;
+                    }
+                }
+            }
+
+//            System.out.println(left + " " + right);
+
+            System.out.println(result);
         }
+
+    }
+
+    private static int[] rotate(String[] str, int left, int right) {
+        while (left < right && str[left].equals(str[right])) {
+            left++;
+            right--;
+        }
+        return new int[]{left, right};
     }
 }
