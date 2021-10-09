@@ -30,7 +30,7 @@ public class BOJ17609_회문 {
 
             if (left >= right) {
                 result = 0;
-            } else {
+            } else { // 애먹었던 문제 반례 cccfccfcc - 밑에 두 조건문을 분리해줘서 핵열~
                 int tl = 0, tr = 0;
                 if (str[left].equals(str[right - 1])) {
                     rt = rotate(str, left, right - 1);
