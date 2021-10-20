@@ -17,7 +17,7 @@ public class NumberSum {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
 		int n = Integer.parseInt(st.nextToken());
-		long m = Long.parseLong(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
 
 		int[] numbers = new int[n + 1];
 		st = new StringTokenizer(br.readLine(), " ");
