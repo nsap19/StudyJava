@@ -33,6 +33,7 @@ public class BOJ3551_Bureaucracy {
             if (indegree[i] == 0) queue.add(i);
         }
 
+
         ArrayList<Integer> result = new ArrayList<>();
         while (!queue.isEmpty()) {
             int cur = queue.poll();
@@ -42,9 +43,12 @@ public class BOJ3551_Bureaucracy {
                 if (list[next].size() > 0) {
                     indegree[list[next].get(0)]--;
                     if (indegree[list[next].get(0)] == 0) queue.offer(list[next].get(0));
+                    list[next].clear();
                 }
             }
         }
+
+//        System.out.println(Arrays.toString(indegree));
 
 
         Collections.sort(result);
@@ -56,3 +60,18 @@ public class BOJ3551_Bureaucracy {
 
     }
 }
+
+
+/*
+9
+declare
+cancel 1
+declare
+cancel 1
+cancel 1
+cancel 2
+cancel 2
+cancel 2
+declare
+ */
+
