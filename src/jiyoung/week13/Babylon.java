@@ -3,10 +3,7 @@ package jiyoung.week13;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
@@ -31,7 +28,6 @@ public class Babylon {
 
 	// 밑면이 큰 순서대로..? 쌓는게 맞으려나?
 	// 5 4 높이 1인게 있고 1 4 높이 4인게 있으면 전자가 밑면이크지만 후자를 쌓는게 더 높아짐
-	// 음...그러면...
 	// 각 블럭들을 큐에 넣고 쌓는경우 안쌓는경우 고려해서 재귀로 풀어보면 될듯??
 
 	// 스택오버플로우인가??... 메모리초과남 ㅠㅠ 흠다르게 풀어보면..메모이제이션 써보기
