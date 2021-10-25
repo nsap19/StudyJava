@@ -33,13 +33,13 @@ public class SumOfSubsequences2 {
 		left.sort(Comparator.reverseOrder());
 		right.sort(Comparator.naturalOrder());
 		
-//		for (int i = 0; i < left.size(); i++) {
-//			System.out.print(left.get(i)+" ");
-//		}
-//		System.out.println();
-//		for (int i = 0; i < right.size(); i++) {
-//			System.out.print(right.get(i)+" ");
-//		}
+		for (int i = 0; i < left.size(); i++) {
+			System.out.print(left.get(i)+" ");
+		}
+		System.out.println();
+		for (int i = 0; i < right.size(); i++) {
+			System.out.print(right.get(i)+" ");
+		}
 		
 		
 		long cnt = b_search(left, right);
