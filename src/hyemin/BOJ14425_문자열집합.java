@@ -45,56 +45,27 @@ public class BOJ14425_문자열집합 {
     }
 
     public static void main(String[] args) throws IOException {
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        StringTokenizer st;
-//        StringBuilder sb = new StringBuilder();
-//
-//        st = new StringTokenizer(br.readLine(), " ");
-//        int N = Integer.parseInt(st.nextToken());
-//        int M = Integer.parseInt(st.nextToken());
-//
-//        Trie trie = new Trie();
-//
-//        for (int i = 0; i < N; i++) {
-//            String word = br.readLine();
-//            trie.insert(word);
-//        }
-//
-//        int cnt = 0;
-//        for (int i = 0; i < M; i++) {
-//            String word = br.readLine();
-//            if (trie.contains(word)) cnt++;
-//        }
-//
-//        System.out.println(cnt);
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
+        st = new StringTokenizer(br.readLine(), " ");
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        HashMap<String, Integer> map = new HashMap<>();
-        int cnt = 0;
+
+        Trie trie = new Trie();
 
         for (int i = 0; i < N; i++) {
-            map.put(br.readLine(), 1);
+            String word = br.readLine();
+            trie.insert(word);
         }
 
-        for(String str : map.keySet())
-            System.out.println(str);
-
+        int cnt = 0;
         for (int i = 0; i < M; i++) {
-            String str = br.readLine();
-            if (map.get(str) != null) {
-                System.out.println(map.get(str));
-                cnt++;
-            }
+            String word = br.readLine();
+            if (trie.contains(word)) cnt++;
         }
-        bw.write(cnt + "\n");
 
-        br.close();
-        bw.flush();
-        bw.close();
+        System.out.println(cnt);
     }
 }
