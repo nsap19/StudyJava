@@ -71,7 +71,7 @@ public class StringSet {
 			Node cur = node;
 			Node[] child = cur.child;
 
-			// 루트노드엔 저장된게 없어서
+			// 루트노드엔 저장된게 없어서 루트노드가 아니면 집어넣음
 			if (!cur.equals(this.root))
 				sb.append((char) (idx + 'a'));
 
