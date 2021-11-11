@@ -41,7 +41,6 @@ public class TheClosestCommonAncestor {
 			int t1 = Integer.parseInt(st.nextToken());
 			int t2 = Integer.parseInt(st.nextToken());
 			int root = 0;
-			System.out.println(root);
 			for (int i = 1; i < N+1; i++) {
 				if(!findroot[i]) {
 					root = i;
@@ -74,7 +73,7 @@ public class TheClosestCommonAncestor {
 			}
 			else {
 				while(depth[t1]<depth[t2]) {
-					t2= parent[t2];
+					t2 = parent[t2];
 				}
 			}
 		}
