@@ -1,5 +1,4 @@
 package jiyeop;
-
 import java.util.Arrays;
 
 public class Immigration {
