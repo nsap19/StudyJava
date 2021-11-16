@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
-
 public class MeetingPlace {
 	static int[] parent;
 	static int[] depth;

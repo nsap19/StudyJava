@@ -1,7 +1,6 @@
 package jiyeop;
 
 import java.util.Arrays;
-
 public class Immigration {
 	/**
 	 * 무엇을 분할해 탐색할까
