@@ -1,6 +1,7 @@
 package jiyeop;
 
 import java.util.ArrayList;
+
 public class NewsClustering {
 
 	static class newsclustering {
